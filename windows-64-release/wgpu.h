@@ -7,6 +7,10 @@
  *   2. Run `rustup run nightly cbindgen toolkit/library/rust/ --lockfile Cargo.lock --crate wgpu-remote -o dom/webgpu/ffi/wgpu_ffi_generated.h`
  */
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 typedef unsigned long long WGPUNonZeroU64;
 typedef unsigned long WGPUOption_NonZeroU32;
 typedef unsigned long WGPUOption_NonZeroU64;
@@ -82,7 +86,7 @@ enum WGPUBackend {
   WGPUBackend_Gl = 5,
   WGPUBackend_BrowserWebGpu = 6,
 };
-typedef uint8_t WGPUBackend;
+//typedef uint8_t WGPUBackend;
 
 enum WGPUBindingType {
   WGPUBindingType_UniformBuffer = 0,
@@ -94,7 +98,7 @@ enum WGPUBindingType {
   WGPUBindingType_ReadonlyStorageTexture = 6,
   WGPUBindingType_WriteonlyStorageTexture = 7,
 };
-typedef uint32_t WGPUBindingType;
+//typedef uint32_t WGPUBindingType;
 
 /**
  * Alpha blend factor.
@@ -159,7 +163,7 @@ enum WGPUCDeviceType {
    */
   WGPUCDeviceType_Cpu,
 };
-typedef uint8_t WGPUCDeviceType;
+//typedef uint8_t WGPUCDeviceType;
 
 /**
  * Comparison function used for depth and stencil operations.
@@ -400,7 +404,7 @@ enum WGPUSType {
   WGPUSType_AnisotropicFiltering = 268435456,
   WGPUSType_Force32 = 2147483647,
 };
-typedef uint32_t WGPUSType;
+//typedef uint32_t WGPUSType;
 
 /**
  * Operation to perform on the stencil value.
@@ -2311,3 +2315,7 @@ WGPUTextureViewId wgpu_texture_create_view(WGPUTextureId texture_id,
 void wgpu_texture_destroy(WGPUTextureId texture_id);
 
 void wgpu_texture_view_destroy(WGPUTextureViewId texture_view_id);
+
+#ifdef __cplusplus
+}
+#endif
